@@ -1,0 +1,4 @@
+.img-slider-border:hover{
+    border: 4px solid white;
+    transition-duration: 300ms;
+}
