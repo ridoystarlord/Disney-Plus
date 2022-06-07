@@ -62,17 +62,17 @@ const useFirebase = () => {
       .then((data) => setIsAdmin(data),setIsAdminLoading(false));
   }, [user?.uid]);
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser({});
-      }
-      setIsLoading(false);
-    });
-    return () => unSubscribe;
-  }, []);
+  // useEffect(() => {
+  //   const unSubscribe = onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUser(user);
+  //     } else {
+  //       setUser({});
+  //     }
+  //     setIsLoading(false);
+  //   });
+  //   return () => unSubscribe;
+  // }, []);
 
   return {
     registerWithEmailPassword,
