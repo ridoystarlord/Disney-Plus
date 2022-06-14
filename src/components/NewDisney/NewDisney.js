@@ -23,15 +23,7 @@ const NewDisney = () => {
                     </Box>
                       </Grid>
                     ))
-                }
-                {/* <Grid item xs={12} md={3} lg={3}>
-                    <Box className='recommend-card'>
-                        <Link to="/" >
-                            <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/87F1DCF36049558159913ADFD18A800DE1121771540033EC3A7651B8FE154CEB/scale?width=400&aspectRatio=1.78&format=jpeg" alt="" />
-                        </Link>
-                    </Box>
-                </Grid> */}
-                
+                } 
             </Grid>
         </Container>
     );

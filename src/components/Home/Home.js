@@ -20,6 +20,7 @@ const Home = () => {
     let trending = [];
 
     useEffect(()=>{
+        //get all movies
         dispatch(
             setMovies({
               recommend: recommends,
