@@ -5,6 +5,7 @@ import Header from './components/common/Header/Header';
 import Authprovider from './context/Authprovider';
 import Home from './components/Home/Home';
 import Details from './components/Details/Details';
+import MovieContainer from './Admin/MovieContainer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </Routes>
         </Router>
       </Authprovider>
+      {/* <MovieContainer /> */}
     </div>
   );
 }

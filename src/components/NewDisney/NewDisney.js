@@ -5,25 +5,25 @@ import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
 import "./NewDisney.css"
 import { useSelector } from 'react-redux';
-import { selectRecommend } from '../../features/movie/movieSlice';
+import { selectNewDisney } from '../../features/movie/movieSlice';
 
 const NewDisney = () => {
-    // const movies = useSelector(selectRecommend);
+    const movies = useSelector(selectNewDisney);
     return (
         <Container className='my-5'>
             <Typography variant='h5' gutterBottom>New Disney+</Typography>
             <Grid container spacing={2}>
                 {
-                    [1,2,3,4].map((movie, key) => (
+                    movies && movies.map((movie, key) => (
                       <Grid item xs={12} md={3} lg={3} key={key}>
                         <Box className='recommend-card'>
-                            <Link to="/" >
-                                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/87F1DCF36049558159913ADFD18A800DE1121771540033EC3A7651B8FE154CEB/scale?width=400&aspectRatio=1.78&format=jpeg" alt="" />
+                            <Link to={`/detail/` + movie._id} >
+                                <img src={movie.cardimg} alt={movie.title} />
                             </Link>
                     </Box>
                       </Grid>
                     ))
-                } 
+                }
             </Grid>
         </Container>
     );

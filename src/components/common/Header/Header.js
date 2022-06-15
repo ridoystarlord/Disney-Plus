@@ -59,7 +59,7 @@ const Header = () => {
   },[])
 
   return (
-    <div className="sticky-top">
+    <div>
       <Navbar collapseOnSelect expand="lg" bg="#040714" variant="dark">
         <Container>
           <Navbar.Brand href="/">

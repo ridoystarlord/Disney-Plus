@@ -2,14 +2,13 @@
     top: 72px;
     min-height: calc(100vh-250px);
     overflow-x: hidden;
-    
 }
 .details-body{
     left: 0px;
     opacity: 0.8;
     position: fixed;
     right: 0px;
-    top: 0px;
+    top: 72px;
     z-index: -1;
 }
 .details-body img{

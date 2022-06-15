@@ -8,22 +8,35 @@ import group from "../../images/group-icon.png"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getAllMovie } from '../../APIs/Movie';
 
 const Details = () => {
     const {id}=useParams()
     const [movieDetails,setMovieDetails]=useState({})
 
     useEffect(()=>{
-        //api calls
+        const filter={
+            _id:id,
+            idisused:true
+        }
+        getAllMovie(filter)
+            .then(res=>{
+                if (res[0]) {
+                    setMovieDetails(res[1][0]);
+                } else {
+                    console.log(res[1]); 
+                }
+            })
     },[id])
+
 
     return (
         <Container className='details-container'>
             <Box className='details-body'>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/49B92C046117E89BC9243A68EE277A3B30D551D4599F23C10BF0B8C1E90AEFB6/scale?width=1440&aspectRatio=1.78&format=jpeg" alt="" srcset="" />
+                <img src={movieDetails?.backgroundimg} alt="" srcset="" />
             </Box>
             <Box className='details-title'>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/5C647DF3FFBFA343CFEA84AC715148F25F9E86F398B408010CC403E7654FB908/scale?width=1440&aspectRatio=1.78" alt="" srcset="" />
+                <img src={movieDetails?.titleimg} alt="" srcset="" />
             </Box>
             <Box className='details-controls'>
                 <Grid container spacing={2}>

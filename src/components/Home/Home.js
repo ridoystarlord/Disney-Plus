@@ -10,25 +10,31 @@ import Viewers from '../Viewers/Viewers';
 import { useDispatch, useSelector } from "react-redux";
 import { setMovies } from "../../features/movie/movieSlice";
 import { selectUserName } from "../../features/user/userSlice";
+import { getAllMovie } from '../../APIs/Movie';
 
 const Home = () => {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
-    let recommends = [];
-    let newDisneys = [];
-    let originals = [];
-    let trending = [];
 
     useEffect(()=>{
-        //get all movies
-        dispatch(
-            setMovies({
-              recommend: recommends,
-              newDisney: newDisneys,
-              original: originals,
-              trending: trending,
-            })
-          );
+        getAllMovie({})
+        .then(res=>{
+            if (res[0]) {
+                console.log(res[1]);
+                dispatch(
+                    setMovies({
+                      recommend: res[1].filter(item=>item.type==="recommend"),
+                      newDisney: res[1].filter(item=>item.type==="new"),
+                      original: res[1].filter(item=>item.type==="original"),
+                      trending: res[1].filter(item=>item.type==="trending"),
+                    })
+                  );
+            } else {
+                console.log(res[1]); 
+            }
+        })
+
+        
     },[userName])
 
     return (
